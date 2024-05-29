@@ -1,6 +1,6 @@
 import styled, {css} from 'styled-components';
 import { createGlobalStyle } from 'styled-components';  
-import {Link, NavLink} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 export const GlobalStyle = createGlobalStyle`
     *{
@@ -26,10 +26,11 @@ export const GlobalStyle = createGlobalStyle`
         --mainBg: #09090b;
         --backLight: #805aff;
         --mainBgOpacity:rgba(9, 9, 11, 0.8);
+        --codeBg:#18181b;
         
         /* colors */
-        --grayTone: #89898b;
         --white: #fff;
+        --grayTone: #89898b;
         --darkGrayTone: #282838;
 
 
@@ -40,24 +41,10 @@ export const GlobalStyle = createGlobalStyle`
         background: var(--mainBg);
         width: 100vw;
         overflow-x: hidden;
+        color: var(--white);
     }
 
 `;
-
-export const BackLightDiv = styled.div`
-    position: fixed;
-    top: 0%;
-    left: 50%;
-    width: 30vw;
-    height: 30vh;
-    background: var(--backLight);
-    transform: translateX(-50%);
-    z-index: -1;
-    filter: blur(180px) opacity(0.8);
-     
-`;
-
-
 
 
 export const MyAppWrapper = styled.div`
@@ -109,14 +96,6 @@ export const ButtonDefaults = css`
 
 
 // texts
-
-export const Code = styled.div`
-        font-family: var(--codeFont);
-        font-size: var(--small);
-        background: var(--grayTone);
-        font-weight: 600;
-        color: var(--white);
-`;
 
 export const Heading = styled.h1`
     font-size: var(--heading);

@@ -1,10 +1,11 @@
 import { AnchorTag, HugeHeading, Para, SubHeading } from "../../../Global"
-import { HomePageDiv, HomePageHeader } from "../Styled/HomePage"
+import { HomePageDiv, HomePageHeader, BackLightDiv } from "../Styled/HomePage"
 
 const HomePage:React.FC = () => {  
 
     return (
         <HomePageDiv>
+            <BackLightDiv/>
             <HomePageHeader>
                 <HugeHeading>GitBoiUi</HugeHeading>
                 <SubHeading>React UI Library</SubHeading>

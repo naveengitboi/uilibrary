@@ -13,6 +13,8 @@ const NavbarDiv = styled.div`
   border-bottom: 1px solid var(--darkGrayTone);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
+  /* position: fixed;
+  width: 100vw; */
 `;
 const NavItems = styled.div`
   display: flex;
