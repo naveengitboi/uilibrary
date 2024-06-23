@@ -12,13 +12,13 @@ export const HomePageDiv = styled.div`
 `;
 export const BackLightDiv = styled.div`
     position: fixed;
-    top: 0%;
+    top: -25%;
     left: 50%;
     width: 30vw;
     height: 30vh;
     background: var(--backLight);
     transform: translateX(-50%);
-    filter: blur(180px) opacity(0.8);
+    filter: blur(180px) opacity(0.58);
      
 `;
 

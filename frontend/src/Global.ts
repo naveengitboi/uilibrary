@@ -7,8 +7,7 @@ export const GlobalStyle = createGlobalStyle`
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-size: var(--small);
-        font-weight: 500;
+        font-family: var(--priFont);
     }
 
     &:root{
@@ -17,10 +16,10 @@ export const GlobalStyle = createGlobalStyle`
         --secFont: 'Pro Sans', sans-serif;
         --codeFont: "Source Code Pro", monospace;
 
-        --heading: 2rem;
+        --heading: 3rem;
         --medHeading: 1.125rem;
         --normal: 1rem;
-        --small: 0.95rem;
+        --small: 0.85rem;
     
         /* bg */
         --mainBg: #09090b;
@@ -31,8 +30,11 @@ export const GlobalStyle = createGlobalStyle`
         /* colors */
         --white: #fff;
         --grayTone: #89898b;
-        --darkGrayTone: #282838;
+        --darkGrayTone: #27272a;
+        --darkColor: #09090b;
+        --bluish: #4f46e5;
 
+        --universalPadding:15vw;
 
 
     }
@@ -87,11 +89,6 @@ NavLinkTag.defaultProps={
     bgHover: false
 }
 
-export const ButtonDefaults = css`
-    color: var(--white);
-    border: 1px solid var(--grayTone);
-    background-color: var(--mainBg);
-`
 
 
 
@@ -109,13 +106,13 @@ export const HugeHeading = styled.h1`
 `;
 
 interface ParaProps{
-    bgFill?: boolean,
-    
+    bgFill?: boolean;
+    color?: string;
 }
 export const Para = styled.p<ParaProps>`
     font-size: var(--normal);
-    color: var(--white);
-    background: ${props=> props.bgFill ? 'var(--grayTone)' : 'transparent'};
+    color: ${props => props.color ? props.color : 'var(--white)'};
+    background: ${props => props.bgFill ? 'var(--backLight)' : 'transparent'};
 `;
 
 
@@ -126,4 +123,24 @@ Para.defaultProps={
 export const SubHeading = styled.p`
     font-size: var(--medHeading);
     color: var(--white);
+`
+
+interface BtnProps{
+    type?: 'contained' | 'outline';
+}
+export const ButtonDefaults = css<BtnProps>`
+    background: ${props => props.type === 'contained' ? 'var(--white)' : 'transparent'};
+    color: ${props => props.type === 'contained' ? 'var(--darkColor)' : 'var(--white)'};
+    border: ${props => props.type === 'outline' ? '1px solid var(--white)' : '1px solid transparent'};
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1.5rem;
+    border-radius: 5px;
+    outline: none;
+    font-family: var(--priFont);
+    font-size: var(--normal);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `
