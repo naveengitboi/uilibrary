@@ -1,12 +1,10 @@
 import { BackLightDiv } from "../Styled/HomePage";
 import styled from "styled-components";
-import { Para, ButtonDefaults } from "../../../Global";
-import { AiOutlineGithub ,AiOutlineHighlight,AiTwotoneCode} from "react-icons/ai";
+import { Para,  StandOutText } from "../../../Global";
+import { AiFillGithub, AiOutlineHighlight,AiTwotoneCode} from "react-icons/ai";
+import Button, { StyledBtn } from "../../WComponents/Button";
 
 
-interface HomePageProps{
-    type?: 'contained' | 'outline';
-}
 
 const HomePageContainer = styled.div` 
     display: flex;
@@ -24,6 +22,8 @@ const MainSection = styled.div`
     align-items: center;
     flex-direction: column;
     text-align: center;
+    width: 68%;
+
 `;
 const Heading = styled.h1`
   font-size: 35px;
@@ -39,50 +39,16 @@ const ButtonSection = styled.div`
     gap: 1rem;
     margin-top: 1rem;
 `;
-
-const Button = styled.button<HomePageProps>`
-    ${ButtonDefaults}
-    &>svg{
-        font-size: 1.8rem;
-        margin:0 0.5rem ;
-    }
-`;
-const StyledBtn = styled(Button)`
-    background: var(--darkGrayTone);
-    color: var(--white);
-    border: 1px solid var(--white);
-    cursor: pointer;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    padding: 0.25rem 1.25rem;
-    border-radius: 5px;
-    outline: none;
-    font-family: var(--priFont);
-    font-size: var(--normal);
+const StyledBtnWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    &>svg{
-        font-size: 1.5rem;
-        color: var(--white);
-        margin: 0 0.85rem;
-    }
-    font-size: var(--small);
-    margin-bottom: 1rem;
-`;
+    padding: 1px;
+    border-radius: 5px;
+    background-image:linear-gradient(to right, rgba(255, 255, 255, 0.038) , #b5a1ff, rgba(255, 255, 255, 0.059));
 
-interface StandoutProps{
-    underline?: boolean;
+`
 
-}
-const StandOutText = styled.span<StandoutProps>`
-    color: var(--grayTone);
-    font-weight: 600;
-    &:hover{
-        text-decoration: ${props => props.underline ? 'underline' : 'none'};
-    }
-
-`;
 
 
 const HomePage: React.FC = () => {
@@ -90,13 +56,15 @@ const HomePage: React.FC = () => {
     <HomePageContainer>
       <BackLightDiv />
       <MainSection>
-            <StyledBtn type={'contained'} >
+            <StyledBtnWrapper>
+                <StyledBtn type={'contained'} >
                <AiTwotoneCode/> GitBoiLibrary <AiOutlineHighlight/>
             </StyledBtn>
+            </StyledBtnWrapper>
             <Heading>Build Your Website in EASY MODE</Heading>
             <Para>
-                Beautifully designed components with <StandOutText underline={true}>React/TypeScript,</StandOutText> 
-                <StandOutText> Framer Motion</StandOutText>
+                Beautifully designed components with <StandOutText>React/TypeScript,</StandOutText> 
+                <StandOutText> Framer Motion </StandOutText>
                 and 
                 
                 <StandOutText> Styled Components</StandOutText> that you can copy and paste into your apps. Accessible. Customizable. Open Source.
@@ -105,11 +73,12 @@ const HomePage: React.FC = () => {
             <ButtonSection>
                 <Button type={'contained'}>
                 Get Started
+                </Button>
+
+            <Button type={'outline'} onClick={() => console.log('Clicked')}>
+                <AiFillGithub/> Learn More
             </Button>
 
-            <Button type={'outline'}>
-                <AiOutlineGithub/> Learn More
-            </Button>
             </ButtonSection>
       </MainSection>
     

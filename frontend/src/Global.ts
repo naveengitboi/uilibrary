@@ -125,6 +125,39 @@ export const SubHeading = styled.p`
     color: var(--white);
 `
 
+
+//svg
+
+interface SvgProps{
+    color?:string;
+    bgColor?: string;
+
+    hoverColor?: string;
+    hoverBg?: string;
+    
+}
+
+export const Svg = styled.span<SvgProps>`
+
+    &>svg{
+        font-size: 1.25rem;
+        color: ${props => props.color? props.color : 'white'};
+
+        background-color: ${props => props.bgColor ? props.bgColor: 'none'};
+
+        &:hover{
+            color: ${props => props.color? props.color : 'white'};
+
+            background-color: ${props => props.bgColor ? props.bgColor: 'none'};
+        }
+
+    }
+
+
+
+`
+
+//button
 interface BtnProps{
     type?: 'contained' | 'outline';
 }
@@ -144,3 +177,18 @@ export const ButtonDefaults = css<BtnProps>`
     justify-content: center;
     align-items: center;
 `
+
+//span tags
+interface StandoutProps{
+    underline?: boolean;
+
+}
+export const StandOutText = styled.span<StandoutProps>`
+    color: var(--grayTone);
+    font-weight: 600;
+    &:hover{
+        text-decoration: ${props => props.underline ? 'none' : 'underline'};
+        cursor: pointer;
+        
+    }
+`;
